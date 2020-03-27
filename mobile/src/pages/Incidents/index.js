@@ -19,7 +19,6 @@ export default function Incidents() {
   }
 
   async function loadIncidents() {
-    console.log('LOADINCIDENTS');
     if (loading)
       return;
 
@@ -32,7 +31,6 @@ export default function Incidents() {
       params: { page }
     });
 
-    console.log("RESPONSE");
     setIncidents([...incidents, ...response.data]);
     setTotal(response.headers['X-Total-Count']);
     setPage(page + 1); 0
@@ -40,7 +38,6 @@ export default function Incidents() {
   }
 
   useEffect(() => {
-    console.log('USEEFFECT');
     loadIncidents();
   }, []);
 
